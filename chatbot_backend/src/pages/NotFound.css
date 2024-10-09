@@ -1,0 +1,48 @@
+/* src/pages/NotFound.css */
+
+.notfound-container {
+    position: relative;
+    max-width: 600px;
+    margin: 4rem auto;
+    padding: 2rem;
+    text-align: center;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .notfound-container::before {
+    content: '';
+    position: absolute;
+    top: -75px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 150px;
+    background-color: #ECF2F3;
+    border-radius: 50%;
+    z-index: -1;
+  }
+  
+  .notfound-container h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-weight: 700; /* Poppins Bold */
+  }
+  
+  .notfound-container p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    font-weight: 500; /* Poppins Medium */
+  }
+  
+  .notfound-container a {
+    color: var(--primary-color);
+    font-weight: 500; /* Poppins Medium */
+  }
+  
+  .notfound-container a:hover {
+    text-decoration: underline;
+  }
+  

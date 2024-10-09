@@ -1,18 +1,22 @@
 import React, { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import './Register.css'; 
 
-const AuthPage = () => {
-  const [isLogin, setIsLogin] = useState(true);
+const Register = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-
-  const toggleForm = () => {
-    setIsLogin(!isLogin);
-  };
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const url = isLogin ? '/auth/login' : '/auth/register';
+    if (password !== confirmPassword) {
+      alert('Les mots de passe ne correspondent pas.');
+      return;
+    }
+
+    const url = '/auth/register';
     try {
       const response = await fetch(url, {
         method: 'POST',
@@ -24,10 +28,10 @@ const AuthPage = () => {
 
       const data = await response.json();
       if (response.ok) {
-        alert(isLogin ? 'Connexion réussie' : 'Inscription réussie');
+        alert('Inscription réussie');
         console.log('Token:', data.token);
-        // Stockage du token dans le localStorage
         localStorage.setItem('token', data.token);
+        navigate('/profile'); // Redirection après inscription
       } else {
         alert(data.msg || 'Une erreur est survenue');
       }
@@ -38,8 +42,8 @@ const AuthPage = () => {
   };
 
   return (
-    <div className="container">
-      <h2>{isLogin ? 'Connexion' : 'Inscription'}</h2>
+    <div className="auth-container"> {/* Changement ici pour le style uniforme */}
+      <h2>Créer un compte</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -55,21 +59,22 @@ const AuthPage = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit">{isLogin ? 'Se connecter' : 'S\'inscrire'}</button>
+        <input
+          type="password"
+          placeholder="Confirmer le mot de passe"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          required
+        />
+        <button type="submit">S'inscrire</button>
       </form>
       <div className="switch">
-        {isLogin ? (
-          <p>
-            Pas encore inscrit ? <a href="#" onClick={toggleForm}>Créer un compte</a>
-          </p>
-        ) : (
-          <p>
-            Déjà inscrit ? <a href="#" onClick={toggleForm}>Se connecter</a>
-          </p>
-        )}
+        <p>
+          Déjà inscrit ? <Link to="/login">Se connecter</Link>
+        </p>
       </div>
     </div>
   );
 };
 
-export default AuthPage;
+export default Register;

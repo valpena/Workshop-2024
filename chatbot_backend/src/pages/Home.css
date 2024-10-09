@@ -1,0 +1,20 @@
+/* src/Home.css */
+
+.home-container {
+    max-width: 600px;
+    margin: 4rem auto;
+    padding: 2rem;
+    text-align: center;
+    background-color: #FFFFFF; /* Fond blanc */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.home-container h1 {
+    margin-bottom: 1rem;
+}
+
+.home-container p {
+    margin-bottom: 2rem;
+}

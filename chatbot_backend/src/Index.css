@@ -1,0 +1,51 @@
+/* src/index.css */
+
+:root {
+    --background-color: #FFFFFF; /* Fond blanc */
+    --primary-color: #45B3CB; /* Couleur des titres et boutons */
+    --font-family: 'Poppins', sans-serif; /* Police Poppins */
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: #333; /* Couleur du texte par défaut */
+    overflow-x: hidden; /* Empêche le débordement horizontal */
+    max-width: 100vw; /* Empêche le débordement à droite */
+    box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur totale */
+}
+
+* {
+    box-sizing: border-box; /* Applique le box-sizing à tous les éléments */
+}
+
+.container {
+    padding: 0 20px; /* Ajoute un peu de rembourrage sur les côtés */
+    max-width: 100%; /* Assure que la largeur du conteneur ne dépasse pas 100% */
+    overflow: hidden; /* Évite les débordements du contenu */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-color);
+    font-weight: 600; /* Poppins/Bold */
+}
+
+p {
+    font-weight: 400; /* Poppins/Medium */
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white; /* Couleur du texte des boutons */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600; /* Poppins/Bold */
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #3D9BB2; /* Couleur d'ombre au survol */
+}

@@ -1,21 +1,16 @@
 import React, { useState } from 'react';
-//import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import './Login.css'; 
 
-const Register = () => {
+const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (password !== confirmPassword) {
-      alert('Les mots de passe ne correspondent pas.');
-      return;
-    }
-
-    const url = '/auth/register';
+    const url = '/auth/login'; // Assure-toi que cet endpoint est correct
     try {
       const response = await fetch(url, {
         method: 'POST',
@@ -27,11 +22,9 @@ const Register = () => {
 
       const data = await response.json();
       if (response.ok) {
-        alert('Inscription réussie');
+        alert('Connexion réussie');
         console.log('Token:', data.token);
-        // Stockage du token dans le localStorage
         localStorage.setItem('token', data.token);
-        // Rediriger vers la page de profil ou une autre page
         navigate('/profile');
       } else {
         alert(data.msg || 'Une erreur est survenue');
@@ -43,8 +36,8 @@ const Register = () => {
   };
 
   return (
-    <div className="container">
-      <h2>Créer un compte</h2>
+    <div className="auth-container">
+      <h2>Se connecter</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -60,22 +53,15 @@ const Register = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <input
-          type="password"
-          placeholder="Confirmer le mot de passe"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          required
-        />
-        <button type="submit">S'inscrire</button>
+        <button type="submit">Se connecter</button>
       </form>
       <div className="switch">
         <p>
-          Déjà inscrit ? <a href="/login">Se connecter</a>
+          Pas encore inscrit ? <Link to="/register">Créer un compte</Link>
         </p>
       </div>
     </div>
   );
 };
 
-export default Register;
+export default Login;

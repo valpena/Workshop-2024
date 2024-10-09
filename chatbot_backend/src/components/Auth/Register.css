@@ -1,0 +1,86 @@
+/* src/components/auth/Register.css */
+
+.auth-container { /* Utilisation du même nom de classe que dans Login.css */
+    position: relative;
+    max-width: 400px;
+    margin: 10rem auto; /* Ajusté pour être similaire à Login */
+    padding: 2rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Assurez-vous qu'il occupe toute la largeur disponible */
+    box-sizing: border-box; /* Inclure le padding et la bordure dans la largeur */
+}
+
+.auth-container::before { /* Alignement à gauche pour correspondre à Login */
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px; 
+    width: 150px;
+    height: 150px;
+    background-color: #ECF2F3;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.auth-container h2 { /* Style de titre */
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    font-weight: 700; /* Poppins Bold */
+}
+
+.auth-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-container input {
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--input-border);
+    border-radius: 4px;
+    font-family: var(--font-family);
+    font-weight: 500; /* Poppins Medium */
+    background-color: #ECF2F3; /* Fond des champs */
+}
+
+.auth-container button {
+    padding: 0.75rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: var(--font-family);
+    font-weight: 700; /* Poppins Bold */
+    transition: background-color 0.3s ease;
+}
+
+.auth-container button:hover {
+    background-color: #3D9BB2; /* Couleur d'ombre au survol */
+}
+
+.auth-container .switch {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.auth-container .switch a {
+    color: var(--primary-color);
+    font-weight: 500; /* Poppins Medium */
+}
+
+.auth-container .switch a:hover {
+    text-decoration: underline;
+}
+
+/* Styles responsives */
+@media (max-width: 768px) {
+    .auth-container {
+        width: 70%; /* Utiliser 70% de la largeur de l'écran pour les petits écrans */
+        margin: 4rem auto; /* Ajuster la marge pour les petits écrans */
+    }
+}

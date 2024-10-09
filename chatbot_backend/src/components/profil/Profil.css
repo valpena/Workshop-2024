@@ -1,0 +1,43 @@
+/* src/components/profile/Profil.css */
+
+.profile-container {
+    position: relative;
+    max-width: 600px;
+    margin: 4rem auto;
+    padding: 2rem;
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-container::before {
+    content: '';
+    position: absolute;
+    top: -75px;
+    left: -75px;
+    width: 150px;
+    height: 150px;
+    background-color: #ECF2F3;
+    border-radius: 50%;
+    z-index: -1;
+  }
+  
+  .profile-container h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    font-weight: 700; /* Poppins Bold */
+  }
+  
+  .profile-container p {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    font-family: var(--font-family);
+    font-weight: 500; /* Poppins Medium */
+  }
+  
+  .profile-container p strong {
+    color: var(--primary-color);
+  }
+  

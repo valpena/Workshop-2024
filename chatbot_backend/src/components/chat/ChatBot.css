@@ -1,0 +1,95 @@
+/* src/components/chat/ChatBot.css */
+
+.chatbot-container {
+    position: relative;
+    max-width: 600px;
+    margin: 4rem auto;
+    padding: 2rem;
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .chatbot-container::before {
+    content: '';
+    position: absolute;
+    top: -75px;
+    right: -75px;
+    width: 150px;
+    height: 150px;
+    background-color: #ECF2F3;
+    border-radius: 50%;
+    z-index: -1;
+  }
+  
+  .chatbot-container h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-weight: 700; /* Poppins Bold */
+  }
+  
+  .messages {
+    height: 300px;
+    overflow-y: scroll;
+    border: 1px solid #eee;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: #F9F9F9;
+    border-radius: 4px;
+  }
+  
+  .messages p {
+    padding: 0.75rem;
+    border-radius: 4px;
+    margin: 0.5rem 0;
+    max-width: 80%;
+    font-family: var(--font-family);
+    font-weight: 500; /* Poppins Medium */
+  }
+  
+  .messages p.user {
+    background-color: #45B3CB;
+    color: white;
+    align-self: flex-end;
+    margin-left: auto;
+  }
+  
+  .messages p.bot {
+    background-color: #ECF2F3;
+    color: #333;
+    margin-right: auto;
+  }
+  
+  .input-container {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .input-container input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid var(--input-border);
+    border-radius: 4px;
+    font-family: var(--font-family);
+    font-weight: 500; /* Poppins Medium */
+    background-color: #ECF2F3;
+  }
+  
+  .input-container button {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: var(--font-family);
+    font-weight: 700; /* Poppins Bold */
+    transition: background-color 0.3s ease;
+  }
+  
+  .input-container button:hover {
+    background-color: var(--button-hover);
+  }
+  

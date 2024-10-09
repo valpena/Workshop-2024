@@ -1,0 +1,93 @@
+/* src/Header.css */
+
+header {
+    background-color: #45B3CB; /* Couleur de fond */
+    padding: 1rem 20px; /* Ajoute du rembourrage à gauche et à droite */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Permet au contenu de se réorganiser en cas de petite taille d'écran */
+}
+
+header h1 {
+    margin: 0;
+    color: white;
+    font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600; /* Poppins/Bold */
+}
+
+.menu-toggle {
+    display: none; /* Masque le bouton par défaut */
+    background-color: #ffffff; /* Couleur de fond blanche */
+    color: #45B3CB; /* Couleur du texte (couleur du header) */
+    border: none; /* Pas de bordure */
+    border-radius: 5px; /* Coins arrondis */
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    padding: 0.5rem 1rem; /* Ajout de rembourrage pour le rendre plus grand */
+    transition: background-color 0.3s, color 0.3s; /* Transition pour les effets de survol */
+}
+
+/* Effet de survol pour le bouton */
+.menu-toggle:hover {
+    background-color: #45B3CB; /* Change le fond au survol */
+    color: white; /* Change la couleur du texte au survol */
+}
+
+/* Styles de navigation */
+nav {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Liens */
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400; /* Poppins/Medium */
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Bouton de déconnexion */
+nav button {
+    background-color: #ffffff; /* Couleur de fond blanche */
+    color: #45B3CB; /* Couleur du texte (couleur du header) */
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* Style du bouton de déconnexion au survol */
+nav button:hover {
+    text-decoration: underline;
+}
+
+/* Styles responsives */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Affiche le bouton de menu sur les petits écrans */
+    }
+
+    nav {
+        flex-direction: column; /* Aligne les éléments de navigation en colonne */
+        width: 100%; /* Prend toute la largeur */
+        margin-top: 1rem; /* Espace entre le titre et le menu de navigation */
+        display: none; /* Masque le menu par défaut */
+    }
+
+    nav.open {
+        display: flex; /* Affiche le menu lorsqu'il est ouvert */
+    }
+
+    nav a {
+        margin: 0.5rem 0; /* Espace entre les éléments de navigation */
+    }
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-//import './Profil.css'; // les styles
+import './Profil.css'; // les styles
 
 const Profil = () => {
   // Exemple de données utilisateur
