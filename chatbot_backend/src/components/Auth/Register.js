@@ -16,7 +16,7 @@ const Register = () => {
       return;
     }
 
-    const url = '/auth/register';
+    const url = 'http://localhost:5000/api/auth/register'; // Utiliser l'URL correcte
     try {
       const response = await fetch(url, {
         method: 'POST',

@@ -10,7 +10,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const url = '/auth/login'; // Assure-toi que cet endpoint est correct
+    const url = 'http://localhost:5000/api/auth/login'; // Utiliser l'URL correcte
     try {
       const response = await fetch(url, {
         method: 'POST',

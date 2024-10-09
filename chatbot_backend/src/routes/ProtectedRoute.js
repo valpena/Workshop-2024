@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom';
 const ProtectedRoute = ({ children }) => {
   const token = localStorage.getItem('token');
 
-  if (token) { //mettre !login quand les modif sont finis
+  if (!token) { //mettre !login quand les modif sont finis
     return <Navigate to="/login" replace />;
   }
 

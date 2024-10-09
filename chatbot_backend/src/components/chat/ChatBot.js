@@ -5,11 +5,36 @@ const ChatBot = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
 
-  const handleSend = () => {
+  const handleSend = async () => {
     if (input.trim() !== '') {
-      setMessages([...messages, { text: input, sender: 'user' }]);
-      setInput('');
-      // Ici, tu pourrais ajouter la logique pour envoyer le message au backend ou à une API de chatbot
+      const token = localStorage.getItem('token'); // Récupérer le token
+
+      if (!token) {
+        alert("Vous devez être connecté pour utiliser le chatbot.");
+        return;
+      }
+
+      try {
+        const response = await fetch('http://localhost:5000/api/chatbot', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}` // Ajouter le token dans le header
+          },
+          body: JSON.stringify({ message: input })
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+          setMessages([...messages, { text: input, sender: 'user' }, { text: data.response, sender: 'bot' }]);
+          setInput('');
+        } else {
+          alert('Erreur lors de l\'envoi du message.');
+        }
+      } catch (error) {
+        console.error('Erreur:', error);
+        alert('Erreur serveur');
+      }
     }
   };
 

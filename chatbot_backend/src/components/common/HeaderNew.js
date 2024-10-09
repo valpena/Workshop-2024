@@ -26,21 +26,15 @@ const Header = () => {
       </button>
       <nav className={isMenuOpen ? 'open' : ''}>
         <Link to="/">Accueil</Link>
-        {!token ? (
-          <>
             <Link to="/login">Login</Link>
             <Link to="/register">Register</Link>
-          </>
-        ) : (
-          <>
             <Link to="/chat">Chat</Link>
             <Link to="/profile">Profil</Link>
             <button onClick={handleLogout}>Logout</button>
-          </>
-        )}
       </nav>
     </header>
   );
 };
 
 export default Header;
+
