@@ -33,7 +33,7 @@ module.exports = {
     devServer: {
         static: path.join(__dirname, 'public'), // mise à jour de contentBase à static
         compress: true,
-        port: 5000, // port à utiliser
+        port: 3000, // port à utiliser
         hot: true, // active le rechargement à chaud
         historyApiFallback: true, // permet le rafraîchissement de l'historique de l'API
     },

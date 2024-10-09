@@ -19,7 +19,7 @@ const ChatBot = () => {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'x-auth-token': `Bearer ${token}` // Ajouter le token dans le header
+            'x-auth-token': token // Ajoutez le token sans "Bearer"
           },
           body: JSON.stringify({ message: input })
         });

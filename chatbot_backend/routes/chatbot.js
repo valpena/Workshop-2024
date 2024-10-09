@@ -14,7 +14,7 @@ const openai = new OpenAI({
 const preMessage = "Vous êtes un assistant virtuel spécialisé dans la santé. Répondez aux questions des utilisateurs en fournissant des informations utiles et des recommandations.";
 
 // Route protégée pour interagir avec le chatbot (via ChatGPT)
-router.post('/', auth, async (req, res) => {
+router.post('/', auth,async (req, res) => {
   const { message } = req.body;
 
   try {
