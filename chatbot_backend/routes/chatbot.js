@@ -2,22 +2,38 @@
 const express = require('express');
 const router = express.Router();
 const auth = require('../middleware/authMiddleware');
-const axios = require('axios');
+const OpenAI = require('openai');
 
-// Route protégée pour interagir avec le chatbot
+// Utilisez les variables d'environnement pour la clé API
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+const openai = new OpenAI({
+  apiKey: OPENAI_API_KEY, // Définissez la clé API ici
+});
+
+// Définir le prémessage (le même à chaque requête)
+const preMessage = "Vous êtes un assistant virtuel spécialisé dans la santé. Répondez aux questions des utilisateurs en fournissant des informations utiles et des recommandations.";
+
+// Route protégée pour interagir avec le chatbot (via ChatGPT)
 router.post('/', auth, async (req, res) => {
   const { message } = req.body;
 
   try {
-    // Remplacez l'URL par celle de votre API de chatbot
-    const response = await axios.post('https://api.votre-chatbot.com/message', {
-      message,
-      userId: req.user.id, // Utiliser l'ID de l'utilisateur authentifié
+    // Appel à l'API OpenAI ChatGPT
+    const completion = await openai.chat.completions.create({
+      model: 'gpt-3.5-turbo', // Ou 'gpt-4o' selon votre besoin
+      messages: [
+        { role: 'system', content: preMessage }, // Ajoutez le prémessage ici
+        { role: 'user', content: message },      // Le message que l'utilisateur envoie
+      ],
+      max_tokens: 150, // Le nombre maximum de tokens dans la réponse
+      temperature: 0.7, // La créativité des réponses (0 = plus strict, 1 = plus créatif)
     });
 
-    res.json(response.data);
+    // Envoyer la réponse de ChatGPT au client
+    res.json({ response: completion.choices[0].message.content }); // Accéder au contenu de la réponse
+
   } catch (error) {
-    console.error('Erreur du chatbot:', error.message);
+    console.error('Erreur du chatbot:', error.response ? error.response.data : error.message);
     res.status(500).send('Erreur du chatbot');
   }
 });
