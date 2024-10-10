@@ -13,3 +13,30 @@ footer p {
   margin: 0;
   color: #555;
 }
+
+.site-footer {
+    background-color: #ECF2F3;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.site-footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.footer-link {
+    color: #45B3CB;
+    text-decoration: none;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+

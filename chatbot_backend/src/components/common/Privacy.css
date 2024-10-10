@@ -1,0 +1,48 @@
+/* src/Privacy.css */
+
+.privacy-container {
+    max-width: 800px; /* Largeur maximale du conteneur */
+    margin: 4rem auto; /* Centrage du conteneur avec une marge en haut et en bas */
+    padding: 2rem; /* Espacement interne */
+    background-color: #FFFFFF; /* Fond blanc pour le conteneur */
+    border: 1px solid #ccc; /* Bordure grise */
+    border-radius: 8px; /* Coins arrondis */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre légère pour donner du relief */
+}
+
+.privacy-container h1 {
+    font-size: 2rem; /* Taille de police pour le titre principal */
+    margin-bottom: 1rem; /* Marge en bas */
+    color: #45B3CB; /* Couleur du texte */
+    text-align: center; /* Centrer le titre */
+}
+
+.privacy-container h2 {
+    font-size: 1.5rem; /* Taille de police pour les sous-titres */
+    margin-top: 2rem; /* Marge en haut */
+    margin-bottom: 1rem; /* Marge en bas */
+    color: #45B3CB; /* Couleur bleue pour les sous-titres */
+}
+
+.privacy-container p {
+    line-height: 1.6; /* Hauteur de ligne pour une meilleure lisibilité */
+    margin-bottom: 1.5rem; /* Marge en bas des paragraphes */
+    color: #555; /* Couleur du texte */
+}
+
+.privacy-container a {
+    color: #45B3CB; /* Couleur des liens */
+    text-decoration: none; /* Pas de soulignement par défaut */
+    font-weight: bold; /* Gras pour les liens */
+}
+
+.privacy-container a:hover {
+    text-decoration: underline; /* Souligner le lien au survol */
+}
+
+.privacy-footer {
+    margin-top: 3rem; /* Marge en haut pour le footer */
+    text-align: center; /* Centrer le texte */
+    font-size: 0.9rem; /* Taille de police pour le footer */
+    color: #777; /* Couleur plus claire pour le texte du footer */
+}

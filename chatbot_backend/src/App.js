@@ -9,6 +9,8 @@ import NotFound from './pages/NotFound';
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
 import ProtectedRoute from './routes/ProtectedRoute';
+import Privacy from './components/common/Privacy';
+
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
         <Route path="/" element={<Home />} /> {/* Route pour la page d'accueil */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/privacy" element={<Privacy />} />
         <Route
           path="/chat"
           element={

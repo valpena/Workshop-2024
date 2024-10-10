@@ -1,9 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './ChatBot.css';
 
 const ChatBot = () => {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState(() => {
+    // Récupérer les messages du sessionStorage si disponibles
+    const savedMessages = sessionStorage.getItem('chatMessages');
+    return savedMessages ? JSON.parse(savedMessages) : []; // Parse les messages si présents
+  });
   const [input, setInput] = useState('');
+
+  // Utiliser useEffect pour sauvegarder les messages dans sessionStorage à chaque mise à jour
+  useEffect(() => {
+    sessionStorage.setItem('chatMessages', JSON.stringify(messages));
+  }, [messages]);
 
   const handleSend = async () => {
     if (input.trim() !== '') {
@@ -26,7 +35,12 @@ const ChatBot = () => {
 
         const data = await response.json();
         if (response.ok) {
-          setMessages([...messages, { text: input, sender: 'user' }, { text: data.response, sender: 'bot' }]);
+          // Mettre à jour les messages
+          setMessages(prevMessages => [
+            ...prevMessages,
+            { text: input, sender: 'user' },
+            { text: data.response, sender: 'bot' }
+          ]);
           setInput('');
         } else {
           alert('Erreur lors de l\'envoi du message.');
