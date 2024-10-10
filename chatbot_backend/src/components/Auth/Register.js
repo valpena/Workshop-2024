@@ -33,7 +33,7 @@ const Register = () => {
         alert('Inscription réussie');
         console.log('Token:', data.token);
         localStorage.setItem('token', data.token);
-        navigate('/profile'); // Redirection après inscription
+        navigate('/chat'); // Redirection après inscription
       } else {
         alert(data.msg || 'Une erreur est survenue');
       }
@@ -70,14 +70,14 @@ const Register = () => {
         />
         <input
           type="firstName"
-          placeholder="firstName"
+          placeholder="Prénom"
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
           required
         />
         <input
           type="codePostal"
-          placeholder="codePostal"
+          placeholder="Code postal"
           value={codePostal}
           onChange={(e) => setCodePostal(e.target.value)}
           required

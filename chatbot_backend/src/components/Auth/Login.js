@@ -25,7 +25,7 @@ const Login = () => {
         alert('Connexion réussie');
         console.log('Token:', data.token);
         localStorage.setItem('token', data.token);
-        navigate('/profile');
+        navigate('/chat');
       } else {
         alert(data.msg || 'Une erreur est survenue');
       }

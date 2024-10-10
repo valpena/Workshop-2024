@@ -7,7 +7,6 @@ const Profil = () => {
     email: 'john@example.com',
     firstName: 'John',
     postalCode: '75001',
-    bio: 'Développeur React passionné.'
   };
 
   return (
@@ -16,7 +15,6 @@ const Profil = () => {
       <p><strong>Email:</strong> {user.email}</p>
       <p><strong>Prénom:</strong> {user.firstName}</p>
       <p><strong>Code Postal:</strong> {user.postalCode}</p>
-      <p><strong>Bio:</strong> {user.bio}</p>
     </div>
   );
 };
