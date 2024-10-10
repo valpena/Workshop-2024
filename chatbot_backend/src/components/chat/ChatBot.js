@@ -54,7 +54,7 @@ const ChatBot = () => {
 
   return (
     <div className="chatbot-container">
-      <h2>ChatBot</h2>
+      <h2>Médecin de Poche</h2>
       <div className="messages">
         {messages.map((msg, index) => (
           <p key={index} className={msg.sender}>
