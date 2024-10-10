@@ -11,6 +11,14 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  firstName: {
+    type: String,
+    required: true,
+  },
+  codePostal: {
+    type: String,
+    required: true,
+  },
 }, {
   timestamps: true, // Ajoute des champs createdAt et updatedAt
 });

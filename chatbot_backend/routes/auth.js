@@ -7,7 +7,7 @@ const User = require('../models/User');
 
 // Inscription
 router.post('/register', async (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, firstName, codePostal } = req.body;
 
   try {
     // Vérifier si l'utilisateur existe déjà
@@ -17,7 +17,7 @@ router.post('/register', async (req, res) => {
     }
 
     // Créer un nouvel utilisateur
-    user = new User({ username, password });
+    user = new User({ username, password, firstName, codePostal });
 
     // Hacher le mot de passe
     const salt = await bcrypt.genSalt(10);

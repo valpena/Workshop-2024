@@ -6,6 +6,8 @@ const Register = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [codePostal, setCodePostal] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -23,7 +25,7 @@ const Register = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ username, password, firstName, codePostal }),
       });
 
       const data = await response.json();
@@ -64,6 +66,20 @@ const Register = () => {
           placeholder="Confirmer le mot de passe"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
+          required
+        />
+        <input
+          type="firstName"
+          placeholder="firstName"
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+          required
+        />
+        <input
+          type="codePostal"
+          placeholder="codePostal"
+          value={codePostal}
+          onChange={(e) => setCodePostal(e.target.value)}
           required
         />
         <button type="submit">S'inscrire</button>
